@@ -7,7 +7,7 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 				<head>
 					<meta charset="UTF-8" />
 					<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-					<title>登录</title>
+					<title>Login</title>
 					<script src="https://cdn.tailwindcss.com"></script>
 				</head>
 				<body class="bg-gray-100 flex items-center justify-center h-screen">
@@ -29,7 +29,7 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 									class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 									type="submit"
 								>
-									登录
+									Login
 								</button>
 							</div>
 						</form>
@@ -48,7 +48,7 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
                                     if (response.ok) {
                                         window.location.reload();
                                     } else {
-                                        alert('登录失败');
+                                        alert('Login failed');
                                     }
                                 });
                             `,
@@ -64,52 +64,52 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 			<head>
 				<meta charset="UTF-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-				<title>Gemini API 密钥管理</title>
+				<title>Gemini API Key manage</title>
 				<script src="https://cdn.tailwindcss.com"></script>
 			</head>
 			<body class="bg-slate-100 text-slate-800">
 				{showWarning && (
 					<div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-3 mb-4" role="alert">
-						<strong class="font-bold">安全警告：</strong>
-						<span class="block">当前 HOME_ACCESS_KEY 或 AUTH_KEY 为默认值，请尽快修改环境变量并重新部署 Worker！</span>
+						<strong class="font-bold">Safety Warning：</strong>
+						<span class="block">Current HOME_ACCESS_KEY or AUTH_KEY as Default，Pls change it and redeploy Worker！</span>
 					</div>
 				)}
 				<div class="flex h-screen">
 					<div class="w-64 bg-slate-800 text-white p-4 flex flex-col">
-						<h1 class="text-2xl font-bold mb-8 text-sky-400">管理面板</h1>
+						<h1 class="text-2xl font-bold mb-8 text-sky-400">Control Dashboard</h1>
 						<nav class="flex flex-col space-y-2">
 							<a href="#" id="nav-keys-list" class="block py-2.5 px-4 rounded-lg bg-slate-700 transition-colors">
-								密钥列表
+								Key list
 							</a>
 							<a href="#" id="nav-add-keys" class="block py-2.5 px-4 rounded-lg hover:bg-slate-700 transition-colors">
-								添加密钥
+								Add Key
 							</a>
 						</nav>
 					</div>
 					<div class="flex-1 p-8 overflow-y-auto">
 						<div id="page-keys-list">
-							<h2 class="text-3xl font-bold mb-6 text-slate-700">密钥列表</h2>
+							<h2 class="text-3xl font-bold mb-6 text-slate-700">Key list</h2>
 							<div class="bg-white p-6 rounded-lg shadow-sm">
 								<div class="flex justify-between items-center mb-4">
-									<h3 class="text-xl font-semibold text-slate-600">已存储的密钥</h3>
+									<h3 class="text-xl font-semibold text-slate-600">Stored key</h3>
 									<div class="space-x-2">
 										<button
 											id="check-keys-btn"
 											class="px-4 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition-colors shadow-sm"
 										>
-											一键检查
+											check
 										</button>
 										<button
 											id="refresh-keys-btn"
 											class="px-4 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-colors shadow-sm"
 										>
-											刷新
+											refresh
 										</button>
 										<button
 											id="select-invalid-keys-btn"
 											class="px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors shadow-sm ml-2 hidden"
 										>
-											勾选无效密钥
+											select invalid key
 										</button>
 									</div>
 								</div>
@@ -120,11 +120,11 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 												<th class="p-3 w-6">
 													<input type="checkbox" id="select-all-keys" class="rounded border-slate-300" />
 												</th>
-												<th class="p-3 text-slate-600 font-semibold">API 密钥</th>
-												<th class="p-3 text-slate-600 font-semibold">状态</th>
-												<th class="p-3 text-slate-600 font-semibold">分组</th>
-												<th class="p-3 text-slate-600 font-semibold">最后检查时间</th>
-												<th class="p-3 text-slate-600 font-semibold">失败次数</th>
+												<th class="p-3 text-slate-600 font-semibold">API key</th>
+												<th class="p-3 text-slate-600 font-semibold">Status</th>
+												<th class="p-3 text-slate-600 font-semibold">Group</th>
+												<th class="p-3 text-slate-600 font-semibold">Last check time</th>
+												<th class="p-3 text-slate-600 font-semibold">Fail count</th>
 											</tr>
 										</thead>
 										<tbody class="divide-y divide-slate-200"></tbody>
@@ -136,7 +136,7 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 										class="px-4 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-colors disabled:opacity-50 shadow-sm"
 										disabled
 									>
-										上一页
+										Pre
 									</button>
 									<span id="page-info" class="mx-4 text-slate-600"></span>
 									<button
@@ -144,32 +144,32 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 										class="px-4 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-colors disabled:opacity-50 shadow-sm"
 										disabled
 									>
-										下一页
+										Next
 									</button>
 								</div>
 								<button
 									id="delete-selected-keys-btn"
 									class="mt-4 w-full px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition-colors hidden shadow-sm"
 								>
-									删除选中
+									Delete selected
 								</button>
 							</div>
 						</div>
 						<div id="page-add-keys" class="hidden">
-							<h2 class="text-3xl font-bold mb-6 text-slate-700">添加密钥</h2>
+							<h2 class="text-3xl font-bold mb-6 text-slate-700">add key</h2>
 							<div class="bg-white p-6 rounded-lg shadow-sm">
-								<h3 class="text-xl font-semibold mb-4 text-slate-600">批量添加密钥</h3>
+								<h3 class="text-xl font-semibold mb-4 text-slate-600">Batch add key</h3>
 								<form id="add-keys-form">
 									<textarea
 										id="api-keys"
 										class="w-full h-48 p-3 border rounded-lg bg-slate-50 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
-										placeholder="请输入API密钥，每行一个"
+										placeholder="Enter API key each row"
 									></textarea>
 									<button
 										type="submit"
 										class="mt-4 w-full px-4 py-2.5 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors shadow-sm"
 									>
-										添加密钥
+										Submit
 									</button>
 								</form>
 							</div>
@@ -233,13 +233,13 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 										});
 
 										const updatePaginationControls = () => {
-												pageInfoSpan.textContent = \`第 \${currentPage} / \${totalPages} 页\`;
+												pageInfoSpan.textContent = \` \${currentPage} / \${totalPages} Page\`;
 												prevPageBtn.disabled = currentPage === 1;
 												nextPageBtn.disabled = currentPage >= totalPages;
 										};
 
 										const fetchAndRenderKeys = async () => {
-												keysTableBody.innerHTML = '<tr><td colspan="7" class="p-2 text-center">加载中...</td></tr>';
+												keysTableBody.innerHTML = '<tr><td colspan="7" class="p-2 text-center">Loading...</td></tr>';
 												try {
 												  const response = await fetch(\`/api/keys?page=\${currentPage}&pageSize=\${pageSize}\`);
 												  const { keys, total } = await response.json();
@@ -247,10 +247,10 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 												  totalPages = Math.ceil(total / pageSize);
 												  keysTableBody.innerHTML = '';
 												  if (keys.length === 0) {
-												    keysTableBody.innerHTML = '<tr><td colspan="7" class="p-2 text-center">暂无密钥</td></tr>';
+												    keysTableBody.innerHTML = '<tr><td colspan="7" class="p-2 text-center">None</td></tr>';
 												  } else {
 												    keys.forEach(key => {
-												      const statusMap = { normal: '正常', abnormal: '异常' };
+												      const statusMap = { normal: 'normal', abnormal: 'abnormal' };
 												      const row = document.createElement('tr');
 												      row.className = 'hover:bg-slate-50 transition-colors';
 												      row.dataset.key = key.api_key;
@@ -267,7 +267,7 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 												  }
 												  updatePaginationControls();
 												} catch (error) {
-												  keysTableBody.innerHTML = '<tr><td colspan="7" class="p-2 text-center text-red-500">加载失败</td></tr>';
+												  keysTableBody.innerHTML = '<tr><td colspan="7" class="p-2 text-center text-red-500">Loading failed</td></tr>';
 												  console.error('Failed to fetch keys:', error);
 												}
 										};
@@ -294,11 +294,11 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 										deleteSelectedBtn.addEventListener('click', async () => {
 												const selectedKeys = Array.from(document.querySelectorAll('.key-checkbox:checked')).map(cb => cb.dataset.key);
 												if (selectedKeys.length === 0) {
-												  alert('请至少选择一个密钥。');
+												  alert('At least one key');
 												  return;
 												}
 
-												if (!confirm(\`确定要删除选中的 \${selectedKeys.length} 个密钥吗？\`)) {
+												if (!confirm(\`Confirm \${selectedKeys.length} ？\`)) {
 												  return;
 												}
 
@@ -310,15 +310,15 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 												  });
 												  const result = await response.json();
 												  if (response.ok) {
-												    alert(result.message || '密钥删除成功。');
+												    alert(result.message || 'Deleted successful');
 												    fetchAndRenderKeys();
 												    updateDeleteButtonVisibility();
 												    selectAllCheckbox.checked = false;
 												  } else {
-												    alert(\`删除密钥失败: \${result.error || '未知错误'}\`);
+												    alert(\`Deleted failed: \${result.error || 'undefined'}\`);
 												  }
 												} catch (error) {
-												  alert('请求失败，请检查网络连接。');
+												  alert('Request failed, pls check network');
 												  console.error('Failed to delete keys:', error);
 												}
 										});
@@ -330,7 +330,7 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 											rows.forEach(row => {
 												const statusCell = row.querySelector('.status-cell');
 												if (statusCell) {
-													statusCell.textContent = '检查中...';
+													statusCell.textContent = 'Checking...';
 													statusCell.className = 'p-2 status-cell text-gray-500';
 												}
 											});
@@ -342,14 +342,14 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 													body: JSON.stringify({ keys: keysToCheck }),
 												});
 												if (response.ok) {
-													alert('检查完成。');
+													alert('finish check');
 													fetchAndRenderKeys();
 												} else {
 													const result = await response.json();
-													alert(\`检查密钥失败: \${result.error || '未知错误'}\`);
+													alert(\`Check failed: \${result.error || 'undefined'}\`);
 												}
 											} catch (error) {
-												alert('请求失败，请检查网络连接。');
+												alert('Request failed, pls check network');
 												console.error('Failed to check keys:', error);
 											}
 										});
@@ -358,7 +358,7 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 											const rows = keysTableBody.querySelectorAll('tr');
 											rows.forEach(row => {
 												const statusCell = row.querySelector('.status-cell');
-												if (statusCell && statusCell.textContent === '无效') {
+												if (statusCell && statusCell.textContent === 'invalid') {
 													const checkbox = row.querySelector('.key-checkbox');
 													if (checkbox) {
 														checkbox.checked = true;
@@ -372,7 +372,7 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 												e.preventDefault();
 												const keys = apiKeysTextarea.value.split('\\n').map(k => k.trim()).filter(k => k !== '');
 												if (keys.length === 0) {
-												  alert('请输入至少一个API密钥。');
+												  alert('At least one key');
 												  return;
 												}
 												try {
@@ -383,14 +383,14 @@ export const Render = ({ isAuthenticated, showWarning }: { isAuthenticated: bool
 												  });
 												  const result = await response.json();
 												  if (response.ok) {
-												    alert(result.message || '密钥添加成功。');
+												    alert(result.message || 'add key successful');
 												    apiKeysTextarea.value = '';
 												    fetchAndRenderKeys();
 												  } else {
-												    alert(\`添加密钥失败: \${result.error || '未知错误'}\`);
+												    alert(\`add key failed: \${result.error || 'undefined}\`);
 												  }
 												} catch (error) {
-												  alert('请求失败，请检查网络连接。');
+												  alert('Request failed, pls check network');
 												  console.error('Failed to add keys:', error);
 												}
 										});
